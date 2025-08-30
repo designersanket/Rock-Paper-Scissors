@@ -13,7 +13,7 @@ detector = HandDetector(maxHands=1)
 timer = 0
 stateResult = False
 startGame = False
-scores = [0, 0]  # [System ani player]
+scores = [0, 0]  # [AI, Player]
  
 while True:
     imgBG = cv2.imread("img/BG.png")
@@ -22,7 +22,7 @@ while True:
     imgScaled = cv2.resize(img, (0, 0), None, 0.875, 0.875)
     imgScaled = imgScaled[:, 80:480]
  
-    # haat shodhnyasathi
+    # Find Hands
     hands, img = detector.findHands(imgScaled)  # with draw
  
     if startGame:
@@ -50,13 +50,13 @@ while True:
                     imgAI = cv2.imread(f'img/{randomNumber}.png', cv2.IMREAD_UNCHANGED)
                     imgBG = cvzone.overlayPNG(imgBG, imgAI, (149, 310))
  
-                    # jar player jinkala tr
+                    # Player Wins
                     if (playerMove == 1 and randomNumber == 3) or \
                             (playerMove == 2 and randomNumber == 1) or \
                             (playerMove == 3 and randomNumber == 2):
                         scores[1] += 1
  
-                    # jr system jinkala tr
+                    # AI Wins
                     if (playerMove == 3 and randomNumber == 1) or \
                             (playerMove == 1 and randomNumber == 2) or \
                             (playerMove == 2 and randomNumber == 3):
@@ -70,9 +70,9 @@ while True:
     cv2.putText(imgBG, str(scores[0]), (410, 215), cv2.FONT_HERSHEY_PLAIN, 4, (255, 255, 255), 6)
     cv2.putText(imgBG, str(scores[1]), (1112, 215), cv2.FONT_HERSHEY_PLAIN, 4, (255, 255, 255), 6)
  
-    
+    # cv2.imshow("Image", img)
     cv2.imshow("BG", imgBG)
-    
+    # cv2.imshow("Scaled", imgScaled)
  
     key = cv2.waitKey(1)
     if key == ord('s'):
