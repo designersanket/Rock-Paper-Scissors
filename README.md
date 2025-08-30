@@ -14,6 +14,9 @@ pip install opencv-python cvzone
 # Run the game
 python main.py
 # Press "s" to start the game
+<img width="1350" height="790" alt="Screenshot 2025-08-30 211922" src="https://github.com/user-attachments/assets/23ce7665-f375-4117-9a3f-1a4486fc129e" />
+<img width="1352" height="790" alt="Screenshot 2025-08-30 211945" src="https://github.com/user-attachments/assets/f7db0121-8d1d-4dd3-ab9e-7c1a9e8aedb1" />
+
 
 # How To Play
 | Gesture | Meaning  |
